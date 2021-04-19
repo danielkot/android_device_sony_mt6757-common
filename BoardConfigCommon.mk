@@ -112,7 +112,7 @@ BOARD_RIL_CLASS := ../../../$(COMMON_PATH)/ril
 ifeq ($(SELINUX_PERMISSIVE),true)
 BOARD_KERNEL_CMDLINE +=  androidboot.selinux=permissive
 endif
-BOARD_SEPOLICY_DIRS := $(COMMON_PATH)/sepolicy/common/basic $(COMMON_PATH)/sepolicy/common/bsp $(COMMON_PATH)/sepolicy/common/ful
+BOARD_SEPOLICY_DIRS := $(COMMON_PATH)/sepolicy/common/basic $(COMMON_PATH)/sepolicy/common/bsp $(COMMON_PATH)/sepolicy/common/full
 BOARD_SECCOMP_POLICY += $(COMMON_PATH)/seccomp
 
 # Wireless
