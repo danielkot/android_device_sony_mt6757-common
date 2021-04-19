@@ -16,6 +16,10 @@
 
 COMMON_PATH := device/sony/mt6757-common
 
+include $(SRC_TARGET_DIR)/product/languages_full.mk
+include $(SRC_TARGET_DIR)/product/core_64_bit.mk
+include $(SRC_TARGET_DIR)/product/full_base_telephony.mk
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
 
