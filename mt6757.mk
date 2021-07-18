@@ -20,6 +20,18 @@ include $(SRC_TARGET_DIR)/product/languages_full.mk
 include $(SRC_TARGET_DIR)/product/core_64_bit.mk
 include $(SRC_TARGET_DIR)/product/full_base_telephony.mk
 
+ifneq ($(TARGET_BUILD_VARIANT), user)
+# ADB Debugging
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
+    ro.debuggable=1 \
+    ro.secure=0
+endif
+
+ifeq ($(WITH_TWRP),true)
+# Recovery Ramdisk
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(COMMON_PATH)/recovery,recovery/root)
+else
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
 
@@ -34,20 +46,6 @@ PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(COMMON_PATH)/rootdir,roo
 #    init.mt6757.power.rc \
 #    init.mt6757.usb.rc \
 #    ueventd.mt6757.rc
-
-ifeq ($(WITH_TWRP),true)
-# Recovery Ramdisk
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/recovery/etc/twrp.fstab:recovery/root/etc/twrp.fstab
-endif
-
-ifneq ($(TARGET_BUILD_VARIANT), user)
-# ADB Debugging
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.adb.secure=0 \
-    ro.debuggable=1 \
-    ro.secure=0
-endif
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -147,3 +145,4 @@ PRODUCT_PACKAGES += \
     libnl_2
 
 -include vendor/sony/mt6757-common/mt6757-common-vendor.mk
+endif
