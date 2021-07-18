@@ -16,6 +16,10 @@
 
 LOCAL_PATH := $(call my-dir)
 
+ifeq ($(WITH_TWRP),true)
+$(warning WITH_TWRP=true, Building TWRP only!)
+else
 ifeq ($(TARGET_MEDIATEK_COMMON),mt6757)
 include $(call all-makefiles-under,$(LOCAL_PATH))
+endif
 endif
