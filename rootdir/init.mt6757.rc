@@ -1,31 +1,29 @@
-# MTK platform .rc configure
-
-import init.connectivity.rc
-import init.project.rc
+import /init.connectivity.rc
+import /init.project.rc
 import /FWUpgradeInit.rc
-import init.aee.rc
-import init.fon.rc
-import init.rilproxy.rc
-import init.volte.rc
-import init.mal.rc
-import init.epdg.rc
-import init.wfca.rc
-import init.trustonic.rc
-import init.common_svc.rc
-import init.microtrust.rc
-import init.sony-trimarea.rc
-import init.sony-bootstrap.rc
-import init.sony-security.rc
-import init.sony-crashhandling.rc
-import init.sony-idd.rc
-import init.sony-fota.rc
-import init.sony-enterprise.rc
-import init.sony-drm.rc
-import init.qns.rc
-import init.sony-ramdump.rc
+import /init.aee.rc
+import /init.fon.rc
+import /init.rilproxy.rc
+import /init.volte.rc
+import /init.mal.rc
+import /init.epdg.rc
+import /init.wfca.rc
+import /init.trustonic.rc
+import /init.common_svc.rc
+import /init.microtrust.rc
+import /init.sony-trimarea.rc
+import /init.sony-bootstrap.rc
+import /init.sony-security.rc
+import /init.sony-crashhandling.rc
+import /init.sony-idd.rc
+import /init.sony-fota.rc
+import /init.sony-enterprise.rc
+import /init.sony-drm.rc
+import /init.qns.rc
+import /init.sony-ramdump.rc
 
 # init.modem.rc must be the LAST rc file because vold.post_fs_data_done is set in it
-import init.modem.rc
+import /init.modem.rc
 # *** DO NOT import the new rc file after this line ***
 
 on early-init
